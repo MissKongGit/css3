@@ -1,0 +1,165 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+html,body,.wrapper{
+	width: 100%;
+	height: 100%;
+}
+.wrapper{
+	background-color: rgba(0,0,0,.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.content{
+	width: 80%;
+	height: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.item{
+	width: 16%;
+	height: 100%;
+	background-color: #333;
+	border-radius: 20px;
+	overflow:hidden;
+	transition: height 0.5s linear 0.5s,width 0.5s linear;
+}
+.item .inner{
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	overflow: hidden;
+	transition: transform 0.5s linear;
+	position: relative;
+}
+.init .item .inner{
+	transform: translate3d(0,100%,0);
+}
+.item:nth-of-type(1) .inner{
+	transition-delay: 0.1s;
+}
+.item:nth-of-type(2) .inner{
+	transition-delay: 0.2s;
+}
+.item:nth-of-type(3) .inner{
+	transition-delay: 0.3s;
+}
+.item:nth-of-type(4) .inner{
+	transition-delay: 0.4s;
+}
+.item:nth-of-type(5) .inner{
+	transition-delay: 0.5s;
+}
+.item:nth-of-type(6) .inner{
+	transition-delay: 0.6s;
+}
+.item .bg{
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.5;
+}
+.active .bg{
+	opacity: 1;
+}
+.item:nth-of-type(1) .bg{
+	background-image:url('./img/1.jpg');
+}
+.item:nth-of-type(2) .bg{
+	background-image:url('./img/2.jpg');
+}
+.item:nth-of-type(3) .bg{
+	background-image:url('./img/3.jpg');
+}
+.item:nth-of-type(4) .bg{
+	background-image:url('./img/4.jpg');
+}
+.item:nth-of-type(5) .bg{
+	background-image:url('./img/5.jpg');
+}
+.item:nth-of-type(6) .bg{
+	background-image:url('./img/6.jpg');
+}
+.item .inner .title{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	opacity: 1;
+	transition: opacity 0.2s linear 1s;
+}
+.wrapper-active .item .inner .title{
+	opacity: 0;
+	transition: opacity 0.2s linear;
+}
+.item .inner .title h2{
+	font-size: 16px;
+	color: #fff;
+}
+.item:hover .bg{
+	opacity: 1;
+	transition: opacity 0.2s linear;
+}
+.item:hover .inner h2{
+	font-size: 24px;
+	transition: font-size 0.2s linear;
+}
+.item.active{
+	width: 100%;
+}
+.wrapper-active .content .item{
+	transition: height 0.5s linear,width 0.5s linear 0.5s;
+}
+.wrapper-active .item:not(.active){
+	width: 0%;
+	height: 0%;
+}
+.item .inner .direction{
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	height: 30px;
+	opacity: 0;
+}
+.active .inner .direction{
+	opacity: 1;
+	transition: opacity 0.5s linear 1s;
+}
+.item .inner .direction .header{
+	position: absolute;
+	left: 50px;
+	color: #fff;
+	font-size: 24px;
+}
+.item .inner .direction .close{
+	position: absolute;
+	right: 50px;
+	top: 50%;
+	cursor: pointer;
+}
+.active .inner .direction .close{
+	width: 30px;
+	height: 30px;
+	transform: rotate(360deg);
+	transition: all 0.5s linear 1s;
+}
+.item .inner .direction .close::before,
+.item .inner .direction .close::after{
+	content: "";
+	width: 30px;
+	height: 4px;
+	background-color: #fff;
+	position: absolute;
+}
+.item .inner .direction .close::before{
+	transform: rotate(-45deg);
+}
+.item .inner .direction .close::after{
+	transform: rotate(45deg);
+}
